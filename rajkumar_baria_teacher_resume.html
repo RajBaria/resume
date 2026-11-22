@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baria Rajkumar Somabhai - Teacher Resume</title>
+    <!-- Google Fonts for clean Gujarati (Noto Sans Gujarati) & English (Inter) typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f2942;       /* Deep Academic Navy */
+            --primary-light: #1e4268;
+            --accent: #b45309;        /* Warm Gold/Amber Accent */
+            --accent-bg: #fef3c7;
+            --sidebar-bg: #f8fafc;
+            --border-color: #e2e8f0;
+            --text-dark: #1e293b;
+            --text-muted: #475569;
+            --pill-bg: #e0f2fe;
+            --pill-text: #0369a1;
+            --pill-border: #bae6fd;
+            --percent-color: #0f766e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans Gujarati', 'Inter', sans-serif;
+            background-color: #cbd5e1;
+            color: var(--text-dark);
+            line-height: 1.5;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        /* Language Selection Overlay (Shown on initial load) */
+        .lang-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.96) 0%, rgba(15, 41, 66, 0.96) 100%);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .lang-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .lang-card {
+            background: #ffffff;
+            border-radius: 16px;
+            max-width: 440px;
+            width: 100%;
+            padding: 32px 26px;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
+            border-top: 5px solid var(--accent);
+        }
+
+        .lang-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 14px;
+            border-radius: 50%;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+        }
+
+        .lang-card h2 {
+            font-size: 21px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .lang-card p {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .lang-btn-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .lang-choice-btn {
+            font-family: 'Noto Sans Gujarati', 'Inter', sans-serif;
+            padding: 14px 16px;
+            border-radius: 10px;
+            border: 2px solid var(--border-color);
+            background: #f8fafc;
+            color: var(--primary);
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .lang-choice-btn span.sub {
+            font-size: 11.5px;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .lang-choice-btn:hover {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(15, 41, 66, 0.22);
+        }
+
+        .lang-choice-btn:hover span.sub {
+            color: #e2e8f0;
+        }
+
+        /* Top Action Toolbar (Hidden when printing) */
+        .toolbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 12px 24px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .toolbar-info {
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+
+        .toolbar-info strong {
+            color: #38bdf8;
+        }
+
+        .toolbar-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .theme-switcher {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 12.5px;
+            color: #e2e8f0;
+        }
+
+        .theme-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: transform 0.15s ease, border-color 0.15s ease;
+            padding: 0;
+        }
+
+        .theme-dot:hover {
+            transform: scale(1.15);
+        }
+
+        .theme-dot.active {
+            border-color: #ffffff;
+            box-shadow: 0 0 0 2px #38bdf8;
+            transform: scale(1.15);
+        }
+
+        .btn {
+            font-family: 'Noto Sans Gujarati', 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-lang {
+            background-color: #334155;
+            color: #f8fafc;
+            border: 1px solid #475569;
+        }
+
+        .btn-lang:hover {
+            background-color: #475569;
+        }
+
+        .btn-print {
+            background-color: #0284c7;
+            color: #ffffff;
+        }
+
+        .btn-print:hover {
+            background-color: #0369a1;
+        }
+
+        /* A4 Page Container */
+        .page-wrapper {
+            padding: 24px 12px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .resume-page {
+            width: 210mm;
+            min-height: 297mm;
+            background: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        .resume-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: #ffffff;
+            padding: 22px 28px;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .photo-box {
+            width: 104px;
+            height: 118px;
+            border-radius: 8px;
+            border: 3px solid rgba(255, 255, 255, 0.85);
+            background-color: #e2e8f0;
+            overflow: hidden;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        /* Height 124% with top alignment cleanly crops out the bottom date strip */
+        .photo-box img {
+            width: 100%;
+            height: 124%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .header-details {
+            flex: 1;
+        }
+
+        .header-details h1 {
+            font-size: 25px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin-bottom: 4px;
+            color: #ffffff;
+        }
+
+        .header-subtitle {
+            font-size: 14.5px;
+            font-weight: 600;
+            color: #fde68a;
+            margin-bottom: 8px;
+        }
+
+        .header-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #f8fafc;
+            font-size: 11.5px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* Main Two-Column Body */
+        .resume-body {
+            display: grid;
+            grid-template-columns: 34% 66%;
+            flex: 1;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            background-color: var(--sidebar-bg);
+            padding: 20px 18px;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .sidebar-section h2 {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .info-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 12.2px;
+        }
+
+        .info-list li {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 11px;
+        }
+
+        .info-value {
+            color: var(--text-dark);
+            font-weight: 500;
+            word-break: break-word;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            font-size: 12px;
+        }
+
+        .skill-item {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-left: 3px solid var(--primary);
+            padding: 6px 9px;
+            border-radius: 4px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .interest-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .pill {
+            background-color: var(--pill-bg);
+            color: var(--pill-text);
+            border: 1px solid var(--pill-border);
+            font-size: 11.5px;
+            font-weight: 600;
+            padding: 4px 9px;
+            border-radius: 14px;
+        }
+
+        /* Right Main Content */
+        .main-content {
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .main-section h2 {
+            font-size: 14.8px;
+            font-weight: 700;
+            color: var(--primary);
+            padding-bottom: 4px;
+            margin-bottom: 9px;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .objective-text {
+            font-size: 12.5px;
+            color: var(--text-dark);
+            text-align: justify;
+            background: #f8fafc;
+            padding: 9px 12px;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent);
+        }
+
+        /* Experience Card */
+        .exp-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px 12px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-bottom: 4px;
+        }
+
+        .exp-title {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .exp-duration {
+            font-size: 11.5px;
+            font-weight: 700;
+            background: var(--accent-bg);
+            color: var(--accent);
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+
+        .exp-org {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .bullet-list {
+            padding-left: 16px;
+            font-size: 12px;
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        /* Education Table */
+        .edu-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11.8px;
+        }
+
+        .edu-table th {
+            background-color: var(--primary);
+            color: #ffffff;
+            text-align: left;
+            padding: 6px 8px;
+            font-weight: 600;
+        }
+
+        .edu-table td {
+            padding: 6px 8px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .edu-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .edu-degree {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .edu-percent {
+            font-weight: 700;
+            color: var(--percent-color);
+            white-space: nowrap;
+        }
+
+        /* Competencies Box */
+        .competency-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-size: 12px;
+        }
+
+        .comp-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .comp-dot {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 1.2;
+        }
+
+        /* Declaration Footer */
+        .declaration-box {
+            margin-top: auto;
+            padding-top: 10px;
+            border-top: 1px dashed #cbd5e1;
+            font-size: 11.8px;
+        }
+
+        .declaration-box p {
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .sign-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .sign-line {
+            text-align: right;
+        }
+
+        /* Responsive Mobile View */
+        @media screen and (max-width: 820px) {
+            .page-wrapper {
+                padding: 12px 8px;
+            }
+            .resume-page {
+                width: 100%;
+                min-height: auto;
+                border-radius: 10px;
+            }
+            .resume-header {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 16px;
+            }
+            .header-badges {
+                justify-content: center;
+            }
+            .resume-body {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .edu-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        /* Print Media Query (Strict A4 Portrait) */
+        @media print {
+            body {
+                background: #ffffff;
+            }
+            .lang-overlay,
+            .toolbar {
+                display: none !important;
+            }
+            .page-wrapper {
+                padding: 0;
+            }
+            .resume-page {
+                box-shadow: none;
+                width: 100%;
+                min-height: 100vh;
+            }
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Initial Language Selection Screen -->
+    <div id="langModal" class="lang-overlay" role="dialog" aria-modal="true" aria-labelledby="langModalTitle">
+        <div class="lang-card">
+            <div class="lang-icon">🌐</div>
+            <h2 id="langModalTitle">Choose Language / ભાષા પસંદ કરો</h2>
+            <p>
+                Baria Rajkumar Somabhai – Teacher Resume<br>
+                કૃપા કરીને રિઝ્યુમ જોવા માટે ભાષા પસંદ કરો:
+            </p>
+            <div class="lang-btn-group">
+                <button type="button" class="lang-choice-btn" onclick="setLanguage('gu')">
+                    <span>ગુજરાતી</span>
+                    <span class="sub">Gujarati Resume</span>
+                </button>
+                <button type="button" class="lang-choice-btn" onclick="setLanguage('en')">
+                    <span>English</span>
+                    <span class="sub">English Resume</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Top Controls (Hidden when printing) -->
+    <div class="toolbar">
+        <div class="toolbar-info" id="toolbarHint">
+            📄 <strong>બારિઆ રાજકુમાર સોમાભાઈ</strong> — શિક્ષક ઇન્ટરવ્યૂ રિઝ્યુમ
+        </div>
+        <div class="toolbar-actions">
+            <div class="theme-switcher" aria-label="Change Resume Theme">
+                <span id="themeLabel">🎨 થીમ:</span>
+                <button type="button" class="theme-dot active" data-theme="navy" style="background: linear-gradient(135deg, #0f2942 55%, #b45309 55%);" title="Navy & Gold" onclick="setTheme('navy')"></button>
+                <button type="button" class="theme-dot" data-theme="emerald" style="background: linear-gradient(135deg, #064e3b 55%, #d97706 55%);" title="Emerald Green" onclick="setTheme('emerald')"></button>
+                <button type="button" class="theme-dot" data-theme="maroon" style="background: linear-gradient(135deg, #581c2c 55%, #b45309 55%);" title="Academic Maroon" onclick="setTheme('maroon')"></button>
+                <button type="button" class="theme-dot" data-theme="indigo" style="background: linear-gradient(135deg, #1e1b4b 55%, #0284c7 55%);" title="Royal Indigo" onclick="setTheme('indigo')"></button>
+                <button type="button" class="theme-dot" data-theme="charcoal" style="background: linear-gradient(135deg, #1f2937 55%, #9a3412 55%);" title="Classic Charcoal" onclick="setTheme('charcoal')"></button>
+            </div>
+            <button type="button" class="btn btn-lang" id="switchLangBtn" onclick="toggleLanguage()">
+                🌐 English
+            </button>
+            <button type="button" class="btn btn-print" id="printBtn" onclick="window.print()">
+                🖨️ PDF સેવ / પ્રિન્ટ કરો
+            </button>
+        </div>
+    </div>
+
+    <!-- A4 Resume Sheet -->
+    <div class="page-wrapper">
+        <div class="resume-page">
+            
+            <!-- Header -->
+            <header class="resume-header">
+                <div class="photo-box">
+                    <!-- Raw GitHub URL used so image renders directly on the webpage -->
+                    <img 
+                        src="https://raw.githubusercontent.com/RajBaria/resume/main/WhatsApp%20Image%202026-08-29%20at%2011.40.15%20AM.jpeg" 
+                        alt="Baria Rajkumar Somabhai"
+                        onerror="this.onerror=null; this.style.height='100%'; this.src='https://placehold.co/208x236/1e4268/ffffff?text=Rajkumar';"
+                    >
+                </div>
+
+                <div class="header-details">
+                    <h1 id="fullName">બારિઆ રાજકુમાર સોમાભાઈ</h1>
+                    <div class="header-subtitle" id="subTitle">
+                        ગણિત અને વિજ્ઞાન શિક્ષક (Mathematics &amp; Science Teacher) | M.Sc., B.Ed.
+                    </div>
+                    <div class="header-badges" id="headerBadges">
+                        <span class="badge">NEP 2020 આધારિત શિક્ષણ</span>
+                        <span class="badge">વેદિક ગણિત</span>
+                        <span class="badge">ડિજિટલ અને ટેક-સક્ષમ શિક્ષક</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content Grid -->
+            <div class="resume-body">
+                
+                <!-- Left Column (Sidebar) -->
+                <aside class="sidebar">
+                    
+                    <!-- Contact Info -->
+                    <div class="sidebar-section">
+                        <h2 id="secContactTitle">સંપર્ક માહિતી</h2>
+                        <ul class="info-list">
+                            <li>
+                                <span class="info-label" id="lblPhone">મોબાઈલ નંબર:</span>
+                                <span class="info-value">+91 6352840795</span>
+                            </li>
+                            <li>
+                                <span class="info-label" id="lblEmail">ઈમેલ આઈડી:</span>
+                                <span class="info-value">rk3171998@gmail.com</span>
+                            </li>
+                            <li>
+                                <span class="info-label" id="lblAddress">સરનામું:</span>
+                                <span class="info-value" id="valAddress">1081 - 1, સેક્ટર 6-C (Sector 6), ગાંધીનગર</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Personal Details -->
+                    <div class="sidebar-section">
+                        <h2 id="secPersonalTitle">વ્યક્તિગત વિગતો</h2>
+                        <ul class="info-list">
+                            <li>
+                                <span class="info-label" id="lblDob">જન્મ તારીખ:</span>
+                                <span class="info-value" id="valDob">૩૧ જુલાઈ ૧૯૯૮ (31/07/1998)</span>
+                            </li>
+                            <li>
+                                <span class="info-label" id="lblAge">ઉંમર:</span>
+                                <span class="info-value" id="valAge">૨૮ વર્ષ (28 Years)</span>
+                            </li>
+                            <li>
+                                <span class="info-label" id="lblGender">જાતિ:</span>
+                                <span class="info-value" id="valGender">પુરુષ (Male)</span>
+                            </li>
+                            <li>
+                                <span class="info-label" id="lblMarital">વૈવાહિક સ્થિતિ:</span>
+                                <span class="info-value" id="valMarital">અપરિણીત (Unmarried)</span>
+                            </li>
+                            <li>
+                                <span class="info-label" id="lblLangs">જાણતી ભાષાઓ:</span>
+                                <span class="info-value" id="valLangs">ગુજરાતી, હિન્દી, અંગ્રેજી</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Computer & Technical Skills -->
+                    <div class="sidebar-section">
+                        <h2 id="secTechTitle">ટેકનિકલ કૌશલ્યો</h2>
+                        <div class="skill-tags" id="techSkillsList">
+                            <div class="skill-item">
+                                💻 કમ્પ્યુટર નોલેજ (MS Office, Smart Board અને ડિજિટલ ટૂલ્સ)
+                            </div>
+                            <div class="skill-item">
+                                📱 એપ ડેવલપમેન્ટ (App Development) માં ઊંડી રુચિ
+                            </div>
+                            <div class="skill-item">
+                                🌐 વેબસાઇટ ડેવલપમેન્ટ (Website Development) માં રુચિ
+                            </div>
+                            <div class="skill-item">
+                                🎬 વિડિયો મેકિંગ અને એડિટિંગ (શૈક્ષણિક કન્ટેન્ટ નિર્માણ)
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Areas of Interest -->
+                    <div class="sidebar-section">
+                        <h2 id="secInterestTitle">વિશેષ રસના વિષયો</h2>
+                        <div class="interest-pills" id="interestPills">
+                            <span class="pill">વેદિક ગણિત</span>
+                            <span class="pill">શિક્ષણ પદ્ધતિશાસ્ત્ર</span>
+                            <span class="pill">મનોવિજ્ઞાન</span>
+                            <span class="pill">તત્ત્વજ્ઞાન</span>
+                        </div>
+                    </div>
+
+                </aside>
+
+                <!-- Right Column (Main Sections) -->
+                <main class="main-content">
+                    
+                    <!-- Career Objective -->
+                    <section class="main-section">
+                        <h2 id="secObjectiveTitle">કારકિર્દીનો ઉદ્દેશ્ય (Career Objective)</h2>
+                        <p class="objective-text" id="objectiveText">
+                            M.Sc. અને B.Ed. ની ઉચ્ચ શૈક્ષણિક લાયકાત ધરાવતા સમર્પિત ગણિત અને વિજ્ઞાન શિક્ષક તરીકે, <strong>નવી શિક્ષણ નીતિ ૨૦૨૦ (NEP 2020)</strong> ના સિદ્ધાંતો મુજબ પ્રવૃત્તિલક્ષી, પ્રાયોગિક અને આધુનિક ટેકનોલોજી-સભર શિક્ષણ આપી વિદ્યાર્થીઓમાં વૈજ્ઞાનિક અભિગમ તથા તાર્કિક શક્તિ વિકસાવવાનો મારો ઉદ્દેશ્ય છે.
+                        </p>
+                    </section>
+
+                    <!-- Teaching Experience -->
+                    <section class="main-section">
+                        <h2 id="secExpTitle">શૈક્ષણિક અનુભવ (Teaching Experience)</h2>
+                        <div class="exp-card">
+                            <div class="exp-header">
+                                <div class="exp-title" id="expRole">સહાયક શિક્ષક (ગણિત અને વિજ્ઞાન)</div>
+                                <div class="exp-duration" id="expDuration">૨૦૨૪ – ૨૦૨૫ (૬ મહિના)</div>
+                            </div>
+                            <div class="exp-org" id="expOrg">સહજાનંદ ગ્લોબલ સ્કૂલ, બાલાસિનોર</div>
+                            <ul class="bullet-list" id="expBullets">
+                                <li>નવી શિક્ષણ નીતિ ૨૦૨૦ (NEP 2020) મુજબ વિદ્યાર્થી-કેન્દ્રિત અને પ્રવૃત્તિ આધારિત ગણિત-વિજ્ઞાનનું શિક્ષણ કાર્ય કરાવ્યું.</li>
+                                <li>વિજ્ઞાન પ્રયોગશાળા (Laboratory) ની પ્રવૃત્તિઓ, પ્રોજેક્ટ વર્ક અને પરીક્ષા મૂલ્યાંકનની કામગીરી નિષ્ઠાપૂર્વક નિભાવી.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Educational Qualification -->
+                    <section class="main-section">
+                        <h2 id="secEduTitle">શૈક્ષણિક લાયકાત (Educational Qualification)</h2>
+                        <table class="edu-table">
+                            <thead>
+                                <tr>
+                                    <th id="thCourse">અભ્યાસક્રમ</th>
+                                    <th id="thInst">શાળા / કોલેજ અને યુનિવર્સિટી</th>
+                                    <th id="thYear">વર્ષ</th>
+                                    <th id="thPercent">ટકાવારી</th>
+                                </tr>
+                            </thead>
+                            <tbody id="eduTableBody">
+                                <tr>
+                                    <td class="edu-degree">M.Sc.<br><span style="font-weight:400; font-size:10.5px;">(માસ્ટર ઓફ સાયન્સ)</span></td>
+                                    <td>જીલ ગોસ્વામી કોલેજ, વહેવાલ<br><strong>મોનાર્ક યુનિવર્સિટી (Monark University)</strong></td>
+                                    <td>૨૦૨૬</td>
+                                    <td class="edu-percent">80.20%</td>
+                                </tr>
+                                <tr>
+                                    <td class="edu-degree">B.Ed.<br><span style="font-weight:400; font-size:10.5px;">(ગણિત અને વિજ્ઞાન)</span></td>
+                                    <td>અંજુમન બી.એડ. કોલેજ, બાલાસિનોર<br><strong>શ્રી ગોવિંદ ગુરુ યુનિવર્સિટી (SGGU)</strong></td>
+                                    <td>૨૦૨૩</td>
+                                    <td class="edu-percent">81.87%</td>
+                                </tr>
+                                <tr>
+                                    <td class="edu-degree">B.Sc.<br><span style="font-weight:400; font-size:10.5px;">(બેચલર ઓફ સાયન્સ)</span></td>
+                                    <td>નટુભાઈ વી. પટેલ કોલેજ (NVPAS), વલ્લભ વિદ્યાનગર<br><strong>સરદાર પટેલ યુનિવર્સિટી (SPU)</strong></td>
+                                    <td>૨૦૨૧</td>
+                                    <td class="edu-percent">56.00%</td>
+                                </tr>
+                                <tr>
+                                    <td class="edu-degree">ધોરણ ૧૨<br><span style="font-weight:400; font-size:10.5px;">(H.S.C. વિજ્ઞાન)</span></td>
+                                    <td>જય જલારામ ઇન્ટરનેશનલ સ્કૂલ, થર્મલ<br><strong>ગુજરાત બોર્ડ (GSHSEB)</strong></td>
+                                    <td>૨૦૧૫</td>
+                                    <td class="edu-percent">55.07%</td>
+                                </tr>
+                                <tr>
+                                    <td class="edu-degree">ધોરણ ૧૦<br><span style="font-weight:400; font-size:10.5px;">(S.S.C.)</span></td>
+                                    <td>કરુણાનિકેતન હાઈસ્કૂલ, બાલાસિનોર<br><strong>ગુજરાત બોર્ડ (GSEB)</strong></td>
+                                    <td>૨૦૧૩</td>
+                                    <td class="edu-percent">75.16%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <!-- Teaching Strengths & NEP 2020 -->
+                    <section class="main-section">
+                        <h2 id="secCompTitle">શિક્ષણ ક્ષમતા અને વિશેષતાઓ</h2>
+                        <div class="competency-grid" id="compGrid">
+                            <div class="comp-row">
+                                <span class="comp-dot">▪</span>
+                                <span><strong>NEP 2020 મુજબ શિક્ષણ:</strong> નવી શિક્ષણ નીતિ ૨૦૨૦ ના માળખા મુજબ ગોખણપટ્ટીને બદલે સમજણપૂર્વકનું, સર્જનાત્મક અને પ્રવૃત્તિલક્ષી શિક્ષણ આપવા સંપૂર્ણ સક્ષમ.</span>
+                            </div>
+                            <div class="comp-row">
+                                <span class="comp-dot">▪</span>
+                                <span><strong>આધુનિક ટેકનોલોજીનો ઉપયોગ:</strong> કમ્પ્યુટર નોલેજ, વિડિયો મેકિંગ-એડિટિંગ તથા એપ અને વેબસાઇટ ડેવલપમેન્ટની રુચિ દ્વારા વિદ્યાર્થીઓ માટે ડિજિટલ અને ઇન્ટરેક્ટિવ લર્નિંગ સામગ્રી તૈયાર કરવાની ક્ષમતા.</span>
+                            </div>
+                            <div class="comp-row">
+                                <span class="comp-dot">▪</span>
+                                <span><strong>મનોવૈજ્ઞાનિક અને પદ્ધતિસરનું અભિગમ:</strong> મનોવિજ્ઞાન, તત્ત્વજ્ઞાન અને શિક્ષણ પદ્ધતિશાસ્ત્રની ઊંડી સમજ સાથે વિદ્યાર્થીઓની માનસિકતા મુજબ સરળ ભાષામાં વિષય સમજાવવાની કુશળતા.</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Declaration -->
+                    <footer class="declaration-box">
+                        <p id="declarationText">
+                            <strong>બાહેંધરી:</strong> હું આથી ખાતરી આપું છું કે ઉપર જણાવેલ તમામ વિગતો મારી જાણ અને સમજ મુજબ સંપૂર્ણ સાચી અને બરાબર છે.
+                        </p>
+                        <div class="sign-row">
+                            <div id="placeDateBlock">
+                                સ્થળ: ગાંધીનગર<br>
+                                તારીખ: <span>____ / ____ / 2026</span>
+                            </div>
+                            <div class="sign-line" id="signBlock">
+                                આપનો વિશ્વાસુ,<br>
+                                <strong>(બારિઆ રાજકુમાર સોમાભાઈ)</strong>
+                            </div>
+                        </div>
+                    </footer>
+
+                </main>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Complete translations for Gujarati ('gu') and English ('en')
+        const resumeContent = {
+            gu: {
+                pageTitle: "બારિઆ રાજકુમાર સોમાભાઈ - શિક્ષક રિઝ્યુમ (Resume)",
+                toolbarHint: "📄 <strong>બારિઆ રાજકુમાર સોમાભાઈ</strong> — શિક્ષક ઇન્ટરવ્યૂ રિઝ્યુમ",
+                themeLabel: "🎨 થીમ:",
+                switchBtn: "🌐 English",
+                printBtn: "🖨️ PDF સેવ / પ્રિન્ટ કરો",
+                fullName: "બારિઆ રાજકુમાર સોમાભાઈ",
+                subTitle: "ગણિત અને વિજ્ઞાન શિક્ષક (Mathematics & Science Teacher) | M.Sc., B.Ed.",
+                badges: [
+                    "NEP 2020 આધારિત શિક્ષણ",
+                    "વેદિક ગણિત",
+                    "ડિજિટલ અને ટેક-સક્ષમ શિક્ષક"
+                ],
+                secContactTitle: "સંપર્ક માહિતી",
+                lblPhone: "મોબાઈલ નંબર:",
+                lblEmail: "ઈમેલ આઈડી:",
+                lblAddress: "સરનામું:",
+                valAddress: "1081 - 1, સેક્ટર 6-C (Sector 6), ગાંધીનગર",
+                secPersonalTitle: "વ્યક્તિગત વિગતો",
+                lblDob: "જન્મ તારીખ:",
+                valDob: "૩૧ જુલાઈ ૧૯૯૮ (31/07/1998)",
+                lblAge: "ઉંમર:",
+                valAge: "૨૮ વર્ષ (28 Years)",
+                lblGender: "જાતિ:",
+                valGender: "પુરુષ (Male)",
+                lblMarital: "વૈવાહિક સ્થિતિ:",
+                valMarital: "અપરિણીત (Unmarried)",
+                lblLangs: "જાણતી ભાષાઓ:",
+                valLangs: "ગુજરાતી, હિન્દી, અંગ્રેજી",
+                secTechTitle: "ટેકનિકલ કૌશલ્યો",
+                techSkills: [
+                    "💻 કમ્પ્યુટર નોલેજ (MS Office, Smart Board અને ડિજિટલ ટૂલ્સ)",
+                    "📱 એપ ડેવલપમેન્ટ (App Development) માં ઊંડી રુચિ",
+                    "🌐 વેબસાઇટ ડેવલપમેન્ટ (Website Development) માં રુચિ",
+                    "🎬 વિડિયો મેકિંગ અને એડિટિંગ (શૈક્ષણિક કન્ટેન્ટ નિર્માણ)"
+                ],
+                secInterestTitle: "વિશેષ રસના વિષયો",
+                interests: [
+                    "વેદિક ગણિત",
+                    "શિક્ષણ પદ્ધતિશાસ્ત્ર",
+                    "મનોવિજ્ઞાન",
+                    "તત્ત્વજ્ઞાન"
+                ],
+                secObjectiveTitle: "કારકિર્દીનો ઉદ્દેશ્ય (Career Objective)",
+                objectiveText: "M.Sc. અને B.Ed. ની ઉચ્ચ શૈક્ષણિક લાયકાત ધરાવતા સમર્પિત ગણિત અને વિજ્ઞાન શિક્ષક તરીકે, <strong>નવી શિક્ષણ નીતિ ૨૦૨૦ (NEP 2020)</strong> ના સિદ્ધાંતો મુજબ પ્રવૃત્તિલક્ષી, પ્રાયોગિક અને આધુનિક ટેકનોલોજી-સભર શિક્ષણ આપી વિદ્યાર્થીઓમાં વૈજ્ઞાનિક અભિગમ તથા તાર્કિક શક્તિ વિકસાવવાનો મારો ઉદ્દેશ્ય છે.",
+                secExpTitle: "શૈક્ષણિક અનુભવ (Teaching Experience)",
+                expRole: "સહાયક શિક્ષક (ગણિત અને વિજ્ઞાન)",
+                expDuration: "૨૦૨૪ – ૨૦૨૫ (૬ મહિના)",
+                expOrg: "સહજાનંદ ગ્લોબલ સ્કૂલ, બાલાસિનોર",
+                expBullets: [
+                    "નવી શિક્ષણ નીતિ ૨૦૨૦ (NEP 2020) મુજબ વિદ્યાર્થી-કેન્દ્રિત અને પ્રવૃત્તિ આધારિત ગણિત-વિજ્ઞાનનું શિક્ષણ કાર્ય કરાવ્યું.",
+                    "વિજ્ઞાન પ્રયોગશાળા (Laboratory) ની પ્રવૃત્તિઓ, પ્રોજેક્ટ વર્ક અને પરીક્ષા મૂલ્યાંકનની કામગીરી નિષ્ઠાપૂર્વક નિભાવી."
+                ],
+                secEduTitle: "શૈક્ષણિક લાયકાત (Educational Qualification)",
+                thCourse: "અભ્યાસક્રમ",
+                thInst: "શાળા / કોલેજ અને યુનિવર્સિટી",
+                thYear: "વર્ષ",
+                thPercent: "ટકાવારી",
+                eduRows: [
+                    {
+                        degree: "M.Sc.",
+                        sub: "(માસ્ટર ઓફ સાયન્સ)",
+                        inst: "જીલ ગોસ્વામી કોલેજ, વહેવાલ",
+                        board: "મોનાર્ક યુનિવર્સિટી (Monark University)",
+                        year: "૨૦૨૬",
+                        percent: "80.20%"
+                    },
+                    {
+                        degree: "B.Ed.",
+                        sub: "(ગણિત અને વિજ્ઞાન)",
+                        inst: "અંજુમન બી.એડ. કોલેજ, બાલાસિનોર",
+                        board: "શ્રી ગોવિંદ ગુરુ યુનિવર્સિટી (SGGU)",
+                        year: "૨૦૨૩",
+                        percent: "81.87%"
+                    },
+                    {
+                        degree: "B.Sc.",
+                        sub: "(બેચલર ઓફ સાયન્સ)",
+                        inst: "નટુભાઈ વી. પટેલ કોલેજ (NVPAS), વલ્લભ વિદ્યાનગર",
+                        board: "સરદાર પટેલ યુનિવર્સિટી (SPU)",
+                        year: "૨૦૨૧",
+                        percent: "56.00%"
+                    },
+                    {
+                        degree: "ધોરણ ૧૨",
+                        sub: "(H.S.C. વિજ્ઞાન)",
+                        inst: "જય જલારામ ઇન્ટરનેશનલ સ્કૂલ, થર્મલ",
+                        board: "ગુજરાત બોર્ડ (GSHSEB)",
+                        year: "૨૦૧૫",
+                        percent: "55.07%"
+                    },
+                    {
+                        degree: "ધોરણ ૧૦",
+                        sub: "(S.S.C.)",
+                        inst: "કરુણાનિકેતન હાઈસ્કૂલ, બાલાસિનોર",
+                        board: "ગુજરાત બોર્ડ (GSEB)",
+                        year: "૨૦૧૩",
+                        percent: "75.16%"
+                    }
+                ],
+                secCompTitle: "શિક્ષણ ક્ષમતા અને વિશેષતાઓ",
+                competencies: [
+                    "<strong>NEP 2020 મુજબ શિક્ષણ:</strong> નવી શિક્ષણ નીતિ ૨૦૨૦ ના માળખા મુજબ ગોખણપટ્ટીને બદલે સમજણપૂર્વકનું, સર્જનાત્મક અને પ્રવૃત્તિલક્ષી શિક્ષણ આપવા સંપૂર્ણ સક્ષમ.",
+                    "<strong>આધુનિક ટેકનોલોજીનો ઉપયોગ:</strong> કમ્પ્યુટર નોલેજ, વિડિયો મેકિંગ-એડિટિંગ તથા એપ અને વેબસાઇટ ડેવલપમેન્ટની રુચિ દ્વારા વિદ્યાર્થીઓ માટે ડિજિટલ અને ઇન્ટરેક્ટિવ લર્નિંગ સામગ્રી તૈયાર કરવાની ક્ષમતા.",
+                    "<strong>મનોવૈજ્ઞાનિક અને પદ્ધતિસરનું અભિગમ:</strong> મનોવિજ્ઞાન, તત્ત્વજ્ઞાન અને શિક્ષણ પદ્ધતિશાસ્ત્રની ઊંડી સમજ સાથે વિદ્યાર્થીઓની માનસિકતા મુજબ સરળ ભાષામાં વિષય સમજાવવાની કુશળતા."
+                ],
+                declarationText: "<strong>બાહેંધરી:</strong> હું આથી ખાતરી આપું છું કે ઉપર જણાવેલ તમામ વિગતો મારી જાણ અને સમજ મુજબ સંપૂર્ણ સાચી અને બરાબર છે.",
+                placeDateHtml: "સ્થળ: ગાંધીનગર<br>તારીખ: <span>____ / ____ / 2026</span>",
+                signHtml: "આપનો વિશ્વાસુ,<br><strong>(બારિઆ રાજકુમાર સોમાભાઈ)</strong>"
+            },
+            en: {
+                pageTitle: "Baria Rajkumar Somabhai - Mathematics & Science Teacher Resume",
+                toolbarHint: "📄 <strong>Baria Rajkumar Somabhai</strong> — Teacher Interview Resume",
+                themeLabel: "🎨 Theme:",
+                switchBtn: "🌐 ગુજરાતી",
+                printBtn: "🖨️ Save PDF / Print",
+                fullName: "Baria Rajkumar Somabhai",
+                subTitle: "Mathematics & Science Teacher | M.Sc., B.Ed.",
+                badges: [
+                    "NEP 2020 Aligned Teaching",
+                    "Vedic Mathematics",
+                    "Tech-Enabled Educator"
+                ],
+                secContactTitle: "Contact Information",
+                lblPhone: "Mobile Number:",
+                lblEmail: "Email ID:",
+                lblAddress: "Address:",
+                valAddress: "1081 - 1, Sector 6-C, Sector 6, Gandhinagar",
+                secPersonalTitle: "Personal Details",
+                lblDob: "Date of Birth:",
+                valDob: "31st July 1998 (31/07/1998)",
+                lblAge: "Age:",
+                valAge: "28 Years",
+                lblGender: "Gender:",
+                valGender: "Male",
+                lblMarital: "Marital Status:",
+                valMarital: "Unmarried",
+                lblLangs: "Languages Known:",
+                valLangs: "Gujarati, Hindi, English",
+                secTechTitle: "Technical Skills",
+                techSkills: [
+                    "💻 Computer Knowledge (MS Office, Smart Board & Digital Tools)",
+                    "📱 Keen Interest in App Development",
+                    "🌐 Interest in Website Development",
+                    "🎬 Video Making & Editing (Educational Content Creation)"
+                ],
+                secInterestTitle: "Areas of Interest",
+                interests: [
+                    "Vedic Mathematics",
+                    "Teaching Methodology",
+                    "Psychology",
+                    "Philosophy"
+                ],
+                secObjectiveTitle: "Career Objective",
+                objectiveText: "As a dedicated Mathematics and Science educator holding M.Sc. and B.Ed. degrees, I aim to deliver activity-based, experiential, and technology-integrated education aligned with the <strong>National Education Policy 2020 (NEP 2020)</strong> to nurture scientific temperament and logical thinking among students.",
+                secExpTitle: "Teaching Experience",
+                expRole: "Assistant Teacher (Mathematics & Science)",
+                expDuration: "2024 – 2025 (6 Months)",
+                expOrg: "Sahajanand Global School, Balasinor",
+                expBullets: [
+                    "Delivered student-centered and activity-based Mathematics and Science instruction in accordance with NEP 2020.",
+                    "Diligently managed Science Laboratory activities, student project work, and examination assessments."
+                ],
+                secEduTitle: "Educational Qualification",
+                thCourse: "Qualification",
+                thInst: "School / College & University",
+                thYear: "Year",
+                thPercent: "Percentage",
+                eduRows: [
+                    {
+                        degree: "M.Sc.",
+                        sub: "(Master of Science)",
+                        inst: "Jeel Goswami College, Vaheval",
+                        board: "Monark University",
+                        year: "2026",
+                        percent: "80.20%"
+                    },
+                    {
+                        degree: "B.Ed.",
+                        sub: "(Mathematics & Science)",
+                        inst: "Anjuman B.Ed. College, Balasinor",
+                        board: "Shri Govind Guru University (SGGU)",
+                        year: "2023",
+                        percent: "81.87%"
+                    },
+                    {
+                        degree: "B.Sc.",
+                        sub: "(Bachelor of Science)",
+                        inst: "Natubhai V. Patel College (NVPAS), Vallabh Vidyanagar",
+                        board: "Sardar Patel University (SPU)",
+                        year: "2021",
+                        percent: "56.00%"
+                    },
+                    {
+                        degree: "Class 12",
+                        sub: "(H.S.C. Science)",
+                        inst: "Jay Jalaram International School, Thermal",
+                        board: "Gujarat Board (GSHSEB)",
+                        year: "2015",
+                        percent: "55.07%"
+                    },
+                    {
+                        degree: "Class 10",
+                        sub: "(S.S.C.)",
+                        inst: "Karunaniketan High School, Balasinor",
+                        board: "Gujarat Board (GSEB)",
+                        year: "2013",
+                        percent: "75.16%"
+                    }
+                ],
+                secCompTitle: "Teaching Competencies & Strengths",
+                competencies: [
+                    "<strong>NEP 2020 Aligned Pedagogy:</strong> Fully capable of imparting conceptual, creative, and activity-based education rather than rote memorization, in line with NEP 2020.",
+                    "<strong>Modern Technology Integration:</strong> Capable of creating digital and interactive learning resources using computer knowledge, video making/editing, and app & website development skills.",
+                    "<strong>Psychological & Methodological Approach:</strong> Strong grasp of psychology, philosophy, and teaching methodology to explain concepts clearly tailored to students' learning levels."
+                ],
+                declarationText: "<strong>Declaration:</strong> I hereby declare that all the information furnished above is true, complete, and correct to the best of my knowledge and belief.",
+                placeDateHtml: "Place: Gandhinagar<br>Date: <span>____ / ____ / 2026</span>",
+                signHtml: "Yours Faithfully,<br><strong>(Baria Rajkumar Somabhai)</strong>"
+            }
+        };
+
+        let currentLang = 'gu';
+
+        // Color themes configuration
+        const resumeThemes = {
+            navy: {
+                primary: '#0f2942',
+                primaryLight: '#1e4268',
+                accent: '#b45309',
+                accentBg: '#fef3c7',
+                sidebarBg: '#f8fafc',
+                pillBg: '#e0f2fe',
+                pillText: '#0369a1',
+                pillBorder: '#bae6fd',
+                percentColor: '#0f766e'
+            },
+            emerald: {
+                primary: '#064e3b',
+                primaryLight: '#047857',
+                accent: '#d97706',
+                accentBg: '#fef3c7',
+                sidebarBg: '#f0fdf4',
+                pillBg: '#d1fae5',
+                pillText: '#065f46',
+                pillBorder: '#a7f3d0',
+                percentColor: '#047857'
+            },
+            maroon: {
+                primary: '#581c2c',
+                primaryLight: '#7f1d3a',
+                accent: '#b45309',
+                accentBg: '#fef3c7',
+                sidebarBg: '#fdf8f8',
+                pillBg: '#ffe4e6',
+                pillText: '#9f1239',
+                pillBorder: '#fecdd3',
+                percentColor: '#881337'
+            },
+            indigo: {
+                primary: '#1e1b4b',
+                primaryLight: '#312e81',
+                accent: '#0284c7',
+                accentBg: '#e0f2fe',
+                sidebarBg: '#f8fafc',
+                pillBg: '#e0e7ff',
+                pillText: '#3730a3',
+                pillBorder: '#c7d2fe',
+                percentColor: '#1d4ed8'
+            },
+            charcoal: {
+                primary: '#1f2937',
+                primaryLight: '#374151',
+                accent: '#9a3412',
+                accentBg: '#ffedd5',
+                sidebarBg: '#f9fafb',
+                pillBg: '#f3f4f6',
+                pillText: '#1f2937',
+                pillBorder: '#d1d5db',
+                percentColor: '#9a3412'
+            }
+        };
+
+        // Switch resume color theme dynamically
+        function setTheme(themeKey) {
+            const t = resumeThemes[themeKey];
+            if (!t) return;
+
+            const root = document.documentElement;
+            root.style.setProperty('--primary', t.primary);
+            root.style.setProperty('--primary-light', t.primaryLight);
+            root.style.setProperty('--accent', t.accent);
+            root.style.setProperty('--accent-bg', t.accentBg);
+            root.style.setProperty('--sidebar-bg', t.sidebarBg);
+            root.style.setProperty('--pill-bg', t.pillBg);
+            root.style.setProperty('--pill-text', t.pillText);
+            root.style.setProperty('--pill-border', t.pillBorder);
+            root.style.setProperty('--percent-color', t.percentColor);
+
+            document.querySelectorAll('.theme-dot').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.theme === themeKey);
+            });
+        }
+
+        // Apply selected language and close the initial language overlay
+        function setLanguage(lang) {
+            currentLang = lang;
+            const data = resumeContent[lang];
+
+            document.documentElement.lang = lang;
+            document.title = data.pageTitle;
+
+            // Toolbar updates
+            document.getElementById('toolbarHint').innerHTML = data.toolbarHint;
+            document.getElementById('themeLabel').textContent = data.themeLabel;
+            document.getElementById('switchLangBtn').textContent = data.switchBtn;
+            document.getElementById('printBtn').textContent = data.printBtn;
+
+            // Header updates
+            document.getElementById('fullName').textContent = data.fullName;
+            document.getElementById('subTitle').textContent = data.subTitle;
+            document.getElementById('headerBadges').innerHTML = data.badges
+                .map(b => `<span class="badge">${b}</span>`)
+                .join('');
+
+            // Sidebar: Contact & Personal
+            document.getElementById('secContactTitle').textContent = data.secContactTitle;
+            document.getElementById('lblPhone').textContent = data.lblPhone;
+            document.getElementById('lblEmail').textContent = data.lblEmail;
+            document.getElementById('lblAddress').textContent = data.lblAddress;
+            document.getElementById('valAddress').textContent = data.valAddress;
+
+            document.getElementById('secPersonalTitle').textContent = data.secPersonalTitle;
+            document.getElementById('lblDob').textContent = data.lblDob;
+            document.getElementById('valDob').textContent = data.valDob;
+            document.getElementById('lblAge').textContent = data.lblAge;
+            document.getElementById('valAge').textContent = data.valAge;
+            document.getElementById('lblGender').textContent = data.lblGender;
+            document.getElementById('valGender').textContent = data.valGender;
+            document.getElementById('lblMarital').textContent = data.lblMarital;
+            document.getElementById('valMarital').textContent = data.valMarital;
+            document.getElementById('lblLangs').textContent = data.lblLangs;
+            document.getElementById('valLangs').textContent = data.valLangs;
+
+            // Sidebar: Technical Skills & Interests
+            document.getElementById('secTechTitle').textContent = data.secTechTitle;
+            document.getElementById('techSkillsList').innerHTML = data.techSkills
+                .map(s => `<div class="skill-item">${s}</div>`)
+                .join('');
+
+            document.getElementById('secInterestTitle').textContent = data.secInterestTitle;
+            document.getElementById('interestPills').innerHTML = data.interests
+                .map(i => `<span class="pill">${i}</span>`)
+                .join('');
+
+            // Main Content: Objective & Experience
+            document.getElementById('secObjectiveTitle').textContent = data.secObjectiveTitle;
+            document.getElementById('objectiveText').innerHTML = data.objectiveText;
+
+            document.getElementById('secExpTitle').textContent = data.secExpTitle;
+            document.getElementById('expRole').textContent = data.expRole;
+            document.getElementById('expDuration').textContent = data.expDuration;
+            document.getElementById('expOrg').textContent = data.expOrg;
+            document.getElementById('expBullets').innerHTML = data.expBullets
+                .map(item => `<li>${item}</li>`)
+                .join('');
+
+            // Main Content: Education Table
+            document.getElementById('secEduTitle').textContent = data.secEduTitle;
+            document.getElementById('thCourse').textContent = data.thCourse;
+            document.getElementById('thInst').textContent = data.thInst;
+            document.getElementById('thYear').textContent = data.thYear;
+            document.getElementById('thPercent').textContent = data.thPercent;
+
+            document.getElementById('eduTableBody').innerHTML = data.eduRows
+                .map(row => `
+                    <tr>
+                        <td class="edu-degree">${row.degree}<br><span style="font-weight:400; font-size:10.5px;">${row.sub}</span></td>
+                        <td>${row.inst}<br><strong>${row.board}</strong></td>
+                        <td>${row.year}</td>
+                        <td class="edu-percent">${row.percent}</td>
+                    </tr>
+                `)
+                .join('');
+
+            // Main Content: Competencies & Declaration
+            document.getElementById('secCompTitle').textContent = data.secCompTitle;
+            document.getElementById('compGrid').innerHTML = data.competencies
+                .map(c => `
+                    <div class="comp-row">
+                        <span class="comp-dot">▪</span>
+                        <span>${c}</span>
+                    </div>
+                `)
+                .join('');
+
+            document.getElementById('declarationText').innerHTML = data.declarationText;
+            document.getElementById('placeDateBlock').innerHTML = data.placeDateHtml;
+            document.getElementById('signBlock').innerHTML = data.signHtml;
+
+            // Hide initial language selector modal
+            document.getElementById('langModal').classList.add('hidden');
+        }
+
+        // Toggle between Gujarati and English from the top toolbar
+        function toggleLanguage() {
+            setLanguage(currentLang === 'gu' ? 'en' : 'gu');
+        }
+    </script>
+
+</body>
+</html>
