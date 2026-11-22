@@ -373,11 +373,79 @@
             word-break: break-word;
         }
 
-        .skill-tags {
+        .info-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .info-link:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .info-value-row {
             display: flex;
-            flex-direction: column;
-            gap: 7px;
-            font-size: 12px;
+            align-items: center;
+            gap: 8px;
+            margin-top: 2px;
+        }
+
+        .icon-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            text-decoration: none;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .icon-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .chip-whatsapp {
+            background-color: #dcfce7;
+            color: #15803d;
+            border: 1px solid #86efac;
+        }
+
+        .chip-whatsapp:hover {
+            background-color: #16a34a;
+            color: #ffffff;
+            border-color: #16a34a;
+            transform: translateY(-1px);
+        }
+
+        .chip-email {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            border: 1px solid #7dd3fc;
+        }
+
+        .chip-email:hover {
+            background-color: #0284c7;
+            color: #ffffff;
+            border-color: #0284c7;
+            transform: translateY(-1px);
+        }
+
+        .chip-web {
+            background-color: #fef3c7;
+            color: #b45309;
+            border: 1px solid #fcd34d;
+        }
+
+        .chip-web:hover {
+            background-color: #d97706;
+            color: #ffffff;
+            border-color: #d97706;
+            transform: translateY(-1px);
         }
 
         .skill-item {
@@ -708,11 +776,45 @@
                         <ul class="info-list">
                             <li>
                                 <span class="info-label" id="lblPhone">મોબાઈલ નંબર:</span>
-                                <span class="info-value">+91 6352840795</span>
+                                <span class="info-value">
+                                    <a href="tel:+916352840795" class="info-link">+91 6352840795</a>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="info-label" id="lblWhatsapp">WhatsApp નંબર:</span>
+                                <div class="info-value-row">
+                                    <span class="info-value">+91 6352840795</span>
+                                    <a href="https://wa.me/916352840795" target="_blank" rel="noopener noreferrer" class="icon-btn chip-whatsapp" id="btnWhatsapp" title="WhatsApp" aria-label="WhatsApp">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                            <path d="M12.031 2c-5.516 0-9.969 4.453-9.969 9.969 0 1.758.459 3.475 1.331 4.988L2 22l5.184-1.359a9.927 9.927 0 0 0 4.847 1.258h.004c5.515 0 9.968-4.453 9.968-9.969A9.936 9.936 0 0 0 19.08 4.91 9.903 9.903 0 0 0 12.031 2zm5.82 14.274c-.246.693-1.434 1.326-1.988 1.409-.508.076-1.15.108-1.855-.116-.428-.136-.977-.318-1.681-.622-2.959-1.277-4.891-4.254-5.039-4.451-.147-.197-1.203-1.601-1.203-3.054 0-1.453.761-2.167 1.031-2.463.27-.295.59-.369.787-.369.197 0 .393.002.565.01.181.009.424-.069.663.506.246.591.836 2.044.91 2.192.074.148.123.32.025.517-.098.197-.148.32-.295.492-.148.172-.31.385-.443.517-.148.147-.302.307-.13.602.172.295.764 1.261 1.641 2.043 1.127 1.005 2.077 1.317 2.372 1.464.295.148.467.123.639-.074.172-.197.738-.861.935-1.156.197-.295.393-.246.664-.148.27.099 1.721.812 2.016.96.295.147.492.221.565.344.074.123.074.713-.172 1.406z"/>
+                                        </svg>
+                                    </a>
+                                </div>
                             </li>
                             <li>
                                 <span class="info-label" id="lblEmail">ઈમેલ આઈડી:</span>
-                                <span class="info-value">rk3171998@gmail.com</span>
+                                <div class="info-value-row">
+                                    <span class="info-value">rk3171998@gmail.com</span>
+                                    <a href="mailto:rk3171998@gmail.com" class="icon-btn chip-email" id="btnEmail" title="Email" aria-label="Email">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="info-label" id="lblWebsite">ઓનલાઇન રિઝ્યુમ લિંક:</span>
+                                <div class="info-value-row">
+                                    <span class="info-value" style="font-size: 11px;">https://rajbaria.github.io/resume/</span>
+                                    <a href="https://rajbaria.github.io/resume/" target="_blank" rel="noopener noreferrer" class="icon-btn chip-web" id="btnWebsite" title="Website" aria-label="Website">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                                            <path d="M2 12h20"/>
+                                        </svg>
+                                    </a>
+                                </div>
                             </li>
                             <li>
                                 <span class="info-label" id="lblAddress">સરનામું:</span>
@@ -822,7 +924,7 @@
                             <tbody id="eduTableBody">
                                 <tr>
                                     <td class="edu-degree">M.Sc.<br><span style="font-weight:400; font-size:10.5px;">(માસ્ટર ઓફ સાયન્સ)</span></td>
-                                    <td>જીલ ગોસ્વામી કોલેજ, વહેવાલ<br><strong>મોનાર્ક યુનિવર્સિટી (Monark University)</strong></td>
+                                    <td>જીલ ગોસ્વામી કોલેજ, વહેવાલ, અમદાવાદ<br><strong>મોનાર્ક યુનિવર્સિટી (Monark University)</strong></td>
                                     <td>૨૦૨૬</td>
                                     <td class="edu-percent">80.20%</td>
                                 </tr>
@@ -914,7 +1016,12 @@
                 ],
                 secContactTitle: "સંપર્ક માહિતી",
                 lblPhone: "મોબાઈલ નંબર:",
+                lblWhatsapp: "WhatsApp નંબર:",
+                btnWhatsapp: "💬 WhatsApp ખોલો",
                 lblEmail: "ઈમેલ આઈડી:",
+                btnEmail: "✉️ ઈમેલ મોકલો",
+                lblWebsite: "ઓનલાઇન રિઝ્યુમ લિંક:",
+                btnWebsite: "🌐 ઓનલાઇન રિઝ્યુમ ખોલો",
                 lblAddress: "સરનામું:",
                 valAddress: "1081 - 1, સેક્ટર 6-C (Sector 6), ગાંધીનગર",
                 secPersonalTitle: "વ્યક્તિગત વિગતો",
@@ -961,7 +1068,7 @@
                     {
                         degree: "M.Sc.",
                         sub: "(માસ્ટર ઓફ સાયન્સ)",
-                        inst: "જીલ ગોસ્વામી કોલેજ, વહેવાલ",
+                        inst: "જીલ ગોસ્વામી કોલેજ, વહેવાલ, અમદાવાદ",
                         board: "મોનાર્ક યુનિવર્સિટી (Monark University)",
                         year: "૨૦૨૬",
                         percent: "80.20%"
@@ -1024,7 +1131,12 @@
                 ],
                 secContactTitle: "Contact Information",
                 lblPhone: "Mobile Number:",
+                lblWhatsapp: "WhatsApp Number:",
+                btnWhatsapp: "💬 Open WhatsApp",
                 lblEmail: "Email ID:",
+                btnEmail: "✉️ Send Email",
+                lblWebsite: "Online Resume Link:",
+                btnWebsite: "🌐 Open Online Resume",
                 lblAddress: "Address:",
                 valAddress: "1081 - 1, Sector 6-C, Sector 6, Gandhinagar",
                 secPersonalTitle: "Personal Details",
@@ -1071,7 +1183,7 @@
                     {
                         degree: "M.Sc.",
                         sub: "(Master of Science)",
-                        inst: "Jeel Goswami College, Vaheval",
+                        inst: "Jeel Goswami College, Vaheval, Ahmedabad",
                         board: "Monark University",
                         year: "2026",
                         percent: "80.20%"
@@ -1227,7 +1339,12 @@
             // Sidebar: Contact & Personal
             document.getElementById('secContactTitle').textContent = data.secContactTitle;
             document.getElementById('lblPhone').textContent = data.lblPhone;
+            document.getElementById('lblWhatsapp').textContent = data.lblWhatsapp;
+            document.getElementById('btnWhatsapp').title = data.btnWhatsapp;
             document.getElementById('lblEmail').textContent = data.lblEmail;
+            document.getElementById('btnEmail').title = data.btnEmail;
+            document.getElementById('lblWebsite').textContent = data.lblWebsite;
+            document.getElementById('btnWebsite').title = data.btnWebsite;
             document.getElementById('lblAddress').textContent = data.lblAddress;
             document.getElementById('valAddress').textContent = data.valAddress;
 
